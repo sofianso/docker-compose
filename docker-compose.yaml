@@ -11,5 +11,21 @@ services:
     # Alternative to environment variables:
     env_file:
       - ./env/mongo.env
+  backend:
+    build: ./backend
+    # build: 
+    #   context: ./backend
+    #   dockerfile: Dockerfile
+    ports:
+      - '80:80'
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      # Anonymous volume
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
 volumes:
   data:
