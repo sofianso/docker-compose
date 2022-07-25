@@ -4,6 +4,8 @@ services:
     image: "mongo"
     volumes:
       - data:/data/db
+    # setting container name manually
+    container_name: mongodb
     # environment:
     #   - MONGO_INITDB_ROOT_USERNAME=root
     #   - MONGO_INITDB_ROOT_PASSWORD=root
@@ -23,6 +25,8 @@ services:
       - ./backend:/app
       # Anonymous volume
       - /app/node_modules
+    # setting container name manually
+    container_name: backend
     env_file:
       - ./env/backend.env
     depends_on:
@@ -35,6 +39,8 @@ services:
       # binding the container with src folder
       - ./frontend/src:/app/src
     # stdin_open tells the container it requires input
+    # setting container name manually
+    container_name: frontend
     stdin_open: true
     # tty attaches to the terminal
     tty: open

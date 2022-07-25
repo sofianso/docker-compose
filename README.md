@@ -29,3 +29,10 @@ docker-compose down
 ```bash
 docker-compose down -v
 ```
+
+## Forcing Docker Container To Rebuild Image
+By default, a Docker image will only get rebuild once in the start, but in certain scenarios such as code change and we need to rebuild the image.
+The command below will force the container to rebuild the image:
+```bash
+docker-compose up --build
+```
