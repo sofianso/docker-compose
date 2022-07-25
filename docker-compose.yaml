@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  mongodb:
+    image: "mongo"
+    volumes:
+      - data:/data/db
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME=root
+    #   - MONGO_INITDB_ROOT_PASSWORD=root
+    #   - MONGO_INITDB_DATABASE=admin
+    # Alternative to environment variables:
+    env_file:
+      - ./env/mongo.env
+volumes:
+  data:
