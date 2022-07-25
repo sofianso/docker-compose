@@ -27,5 +27,20 @@ services:
       - ./env/backend.env
     depends_on:
       - mongodb
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      # binding the container with src folder
+      - ./frontend/src:/app/src
+    # stdin_open tells the container it requires input
+    stdin_open: true
+    # tty attaches to the terminal
+    tty: open
+    depends_on:
+    #OPTIONAL depends on whether or not the app needs backend to run
+      - backend
+      
 volumes:
   data:
